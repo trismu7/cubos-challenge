@@ -177,6 +177,18 @@ NEXT_PUBLIC_APP_URL="http://localhost:3000"
 
 ## Como Executar
 
+### Produção
+
+```bash
+# Build da aplicação
+npm run build
+
+# Executar em produção
+npm run start
+```
+
+A aplicação estará disponível em `http://localhost:3000`
+
 ### Desenvolvimento
 
 ```bash
@@ -190,16 +202,6 @@ bun dev
 ```
 
 A aplicação estará disponível em `http://localhost:3000`
-
-### Produção
-
-```bash
-# Build da aplicação
-npm run build
-
-# Executar em produção
-npm run start
-```
 
 ### Scripts Disponíveis
 
