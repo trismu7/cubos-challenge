@@ -1,0 +1,51 @@
+1. Objetivo
+O objetivo deste desafio é desenvolver um aplicativo web responsivo de ponta a ponta (frontend e backend). A aplicação deve permitir que o usuário adicione, edite, exclua e visualize detalhes de filmes. Além disso, é necessário implementar funcionalidades de busca e filtragem na lista de filmes.
+2. Design
+Você deve seguir o design fornecido no Figma para criar a interface do usuário. A fidelidade visual será avaliada. No entanto, melhorias e modificações criativas são bem-vindas e fortemente encorajadas, desde que devidamente justificadas.
+Alguns aspectos que requerem sua atenção:
+Responsividade: O design cobre larguras específicas (1366 e 414 pixels), mas não aborda dimensões intermediárias ou maiores. Como você solucionaria essa questão?
+Detalhes do Usuário: Alguns elementos que melhoram a experiência do usuário podem não estar explicitamente especificados no design. Utilize sua criatividade e conhecimento técnico para aprimorar o design e a navegabilidade.
+2.1 Cores e Temas
+As cores foram selecionadas a partir do Radix Colors, um sistema que oferece escalas de cores acessíveis e fáceis de usar. Embora o Radix Colors tenha sido adotado para o design, não é obrigatório utilizar a biblioteca de componentes Radix. Você tem total liberdade para escolher outras bibliotecas e desenvolver componentes personalizados, conforme preferir.
+O design principal utiliza o tema escuro, mas o aplicativo deve incluir uma funcionalidade para alternar entre tema claro e escuro, acessível pelo botão no canto superior direito.
+3. Requisitos das Páginas
+3.1 Página de Login
+Contém formulário de login com campo para e-mail e senha.
+Após o login, o usuário deve ser redirecionado para a página de listagem de filmes.
+Caso o usuário já esteja logado, ele deve ser automaticamente redirecionado para a página de listagem.
+3.2 Página de Cadastro
+Contém formulário de cadastro com campo de Nome, email, senha e confirmação de senha.
+Caso o usuário já esteja logado, ele deve ser automaticamente redirecionado para a página de listagem.
+3.3 Página de Listagem de Filmes
+Exibe a lista de filmes cadastrados, independentemente de haver busca ativa.
+Possui um campo de busca que filtra os filmes conforme o texto inserido.
+A lista deve ser paginada, com 10 itens por página.
+Ao clicar no cartão de um filme, o usuário será redirecionado para a página de detalhes.
+Se o usuário não esta logado, não deve conseguir acessar essa pagina
+3.3.1 Filtros
+Ao clicar no botão ”Filtro”, deve aparecer uma modal com filtros para refinar os resultados.
+Os filtros por duração e data de lançamento são obrigatórios, a aplicação deve permitir que o usuário informe uma data de inicio e fim para a listagem de filmes
+Além de duração e data, você deve adicionar ao menos 1 um filtro extra de sua escolha
+3.4 Adição e Edição de filme
+Quando um filme é criado com uma data de lançamento futura, o usuário deve ser receber um email de lembrete na data de estreia do filme.
+3.5 Página de Detalhes do Filme
+Exibe informações como título, título original, data de lançamento, descrição, orçamento, entre outros detalhes.
+3.6 Permissões
+As ações de visualizar, editar e excluir filmes devem ser exclusivas para o usuário que os cadastrou.
+4. Stack Frontend
+Nossa stack padrão utiliza React, sendo a escolha mais segura para este desafio. Entretanto, você tem liberdade para explorar e adotar outras tecnologias que possam trazer benefícios. Caso opte por uma tecnologia diferente, esteja preparado para apresentar e justificar sua decisão. Queremos entender como sua escolha contribui para a criação de um aplicativo eficaz e intuitivo.
+5. Stack Backend
+O banco de dados deve ser o PostgreSQL, migrations devem ser utilizadas. Utilize o ORM de sua preferência.
+As imagens devem ser armazenadas no AWS S3,  Cloudflare R2 ou Google Cloud Storage.
+Você deve utilizar Typescript mas qualquer framework do ecossistema é permitido.
+Para envio de emails você pode utilizar Mailhog, Ethereal ou Resend
+6. Critérios de Avaliação
+O projeto será avaliado com base em:
+Funcionalidades implementadas.
+Reprodução do design, incluindo responsividade e atenção aos detalhes.
+Qualidade do código, incluindo organização e boas práticas.
+Alinhamento com o nível e os requisitos da vaga.
+7. Entrega
+Você pode entregar o projeto em um dos seguintes formatos:
+Repositório hospedado (Github, Gitlab, Bitbucket ou similares).
+Inclua um arquivo README.md com instruções claras sobre como compilar e executar a aplicação.

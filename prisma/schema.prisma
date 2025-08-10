@@ -1,0 +1,89 @@
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../src/db/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  username  String   @unique //added username since user can log in with username
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Movie Movie[]
+
+  RecoverPasswordToken RecoverPasswordToken[]
+  MovieReleaseReminder MovieReleaseReminder[]
+}
+
+enum MovieStatus {
+  released
+  upcoming
+  in_production
+  cancelled
+}
+
+model Movie {
+  id                String      @id @default(uuid())
+  title             String
+  originalTitle     String?
+  description       String?
+  synopsis          String
+  imageUrl          String
+  duration          String // minutes
+  language          String
+  status            MovieStatus
+  budget            String?
+  revenue           String?
+  profit            String?
+  releaseDate       DateTime?
+  watchedPercentage Int? // 0-100
+  trailerUrl        String?
+  imdbId            String?     @unique
+  imdbRating        String?
+  imdbVotes         String?
+
+  remindUserOnLaunch Boolean  @default(false)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  genres               String[]
+  MovieReleaseReminder MovieReleaseReminder[]
+}
+
+model RecoverPasswordToken {
+  id        String   @id @default(uuid())
+  token     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+}
+
+model MovieReleaseReminder {
+  id               String   @id @default(uuid())
+  movieTitle       String
+  movieReleaseDate DateTime
+  alreadySent      Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  movieId String
+  movie   Movie  @relation(fields: [movieId], references: [id])
+
+  @@unique([movieId, userId]) //unique constraint to avoid duplicate reminders
+}
