@@ -14,9 +14,9 @@
 - [Stack Tecnológica](#-stack-tecnológica)
 - [Pré-requisitos](#-pré-requisitos)
 - [Instalação e Configuração](#-instalação-e-configuração)
-- [Configuração do Banco de Dados](#-configuração-do-banco-de-dados)
+- [Configuração do Banco de Dados](#️-configuração-do-banco-de-dados)
 - [Variáveis de Ambiente](#-variáveis-de-ambiente)
-- [Como Executar](#-como-executar)
+- [Como Executar](#como-executar)
 - [Estrutura do Projeto](#-estrutura-do-projeto)
 
 ## ✨ Funcionalidades
