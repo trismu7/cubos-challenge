@@ -1,6 +1,6 @@
 # 🎬 Cubos Movies
 
-**Cubos Movies** é uma aplicação web responsiva de gerenciamento de filmes desenvolvida para o desafio técnico da Cubos . A aplicação permite que usuários cadastrem, editem, excluam e visualizem detalhes de filmes, também permite busca, filtragem e notificações por email.
+**Cubos Movies** é uma aplicação web responsiva de gerenciamento de filmes desenvolvida para o desafio técnico da Cubos Tecnologia. A aplicação permite que usuários cadastrem, editem, excluam e visualizem detalhes de filmes, também permite busca, filtragem e notificações por email.
 
 ![Next.js](https://img.shields.io/badge/Next.js-15.4.6-black?style=flat-square&logo=next.js)
 ![React](https://img.shields.io/badge/React-19.1.0-blue?style=flat-square&logo=react)
@@ -240,4 +240,4 @@ cubos-challenge/
 └── tsconfig.json         # Configuração TypeScript
 ```
 
-Desenvolvido com ❤️ para o desafio da Cubos
+Desenvolvido com ❤️ para o desafio da Cubos Tecnologia
