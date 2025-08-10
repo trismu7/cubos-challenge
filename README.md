@@ -85,7 +85,7 @@
 
 ## 📋 Pré-requisitos
 
-Certifique-se de ter instalado:
+### Para desenvolvimento local:
 
 - **[Node.js](https://nodejs.org/)** (versão 18.x ou superior)
 - **[PostgreSQL](https://www.postgresql.org/)** (versão 12.x ou superior)
@@ -177,6 +177,35 @@ NEXT_PUBLIC_APP_URL="http://localhost:3000"
 
 ## Como Executar
 
+### 🐳 Com Docker (Recomendado)
+
+- **[Docker](https://www.docker.com/)** (versão 20 ou superior)
+- **[Docker Compose](https://docs.docker.com/compose/)** (versão 2 ou superior)
+
+A maneira mais fácil de executar o projeto é usando Docker:
+
+```bash
+# 1. Clone o repositório
+git clone <url-do-repositorio>
+cd cubos-challenge
+
+# 2. Configure as variáveis de ambiente
+cp .env.example .env
+# Importante: Edite o arquivo .env com suas configurações
+
+# 3. Execute com Docker Compose
+docker compose up -d
+```
+
+A aplicação estará disponível em `http://localhost:3000`
+
+**Credenciais padrão** (quando RUN_SEED=true):
+
+- Email: `user@user.com` ou Username: `user`
+- Senha: `123456`
+
+### 💻 Desenvolvimento Local (Sem Docker)
+
 ### Produção
 
 ```bash
@@ -237,9 +266,22 @@ cubos-challenge/
 │   │   └── types/         # Definições de tipos TypeScript
 │   ├── db/                # Configuração do banco
 │   └── middleware.ts      # Middleware do Next.js
+├── Dockerfile             # Configuração do container da aplicação
+├── docker-compose.yml     # Orquestração dos serviços
+├── docker-entrypoint.sh   # Script de inicialização do container
+├── .dockerignore          # Arquivos ignorados no build Docker
+├── .env.example           # Exemplo de variáveis de ambiente
 ├── components.json        # Configuração do shadcn/ui
 ├── package.json          # Dependências e scripts
 └── tsconfig.json         # Configuração TypeScript
 ```
+
+## Observações sobre Docker
+
+- O PostgreSQL roda em um container separado com dados persistentes
+- As migrações do banco são executadas automaticamente na inicialização
+- O seed do banco é opcional e controlado pela variável `RUN_SEED` no arquivo `.env`
+- A aplicação aguarda o banco estar disponível antes de iniciar
+- Todos os logs são visíveis através do `docker compose logs`
 
 Desenvolvido com ❤️ para o desafio da Cubos Tecnologia

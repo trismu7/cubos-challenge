@@ -1,0 +1,46 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: cubos-movies-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: cubos_movies
+      POSTGRES_USER: cubos_user
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cubos_user -d cubos_movies"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - cubos-network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cubos-movies-app
+    restart: unless-stopped
+    environment:
+      - RUN_SEED=${RUN_SEED:-true}
+      - DATABASE_URL=postgresql://cubos_user:password@postgres:5432/cubos_movies
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - cubos-network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  cubos-network:
+    driver: bridge
