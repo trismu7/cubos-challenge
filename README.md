@@ -199,7 +199,7 @@ docker compose up -d
 
 A aplicação estará disponível em `http://localhost:3000`
 
-**Credenciais padrão** (quando RUN_SEED=true):
+**Credenciais padrão** (quando RUN_SEED=true no arquivo `.env`):
 
 - Email: `user@user.com` ou Username: `user`
 - Senha: `123456`
